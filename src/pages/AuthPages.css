@@ -1,0 +1,591 @@
+/* Full-screen fixed auth layout for all laptop/desktop sizes */
+.vrmj-auth {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.vrmj-auth__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: #0b3d91;
+  background-image: url('/img/backround.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.vrmj-auth__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(8, 40, 110, 0.18) 55%,
+    rgba(8, 40, 110, 0.35) 100%
+  );
+  pointer-events: none;
+}
+
+.vrmj-auth__corner-logo {
+  position: fixed;
+  top: 0.85rem;
+  left: 1rem;
+  z-index: 4;
+  width: clamp(180px, 22vw, 260px);
+  pointer-events: none;
+}
+
+.vrmj-auth__corner-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(8, 40, 110, 0.18));
+}
+
+.vrmj-auth__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  padding: 0.75rem 1rem 4.5rem;
+  overflow: hidden;
+}
+
+.vrmj-login-card {
+  width: min(100%, 400px);
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 0.95rem 1.25rem 0.9rem;
+  box-shadow: 0 24px 60px rgba(8, 35, 90, 0.32);
+  text-align: center;
+  animation: rise 0.55s ease both;
+  overflow: hidden;
+}
+
+.vrmj-login-card--wide {
+  width: min(100%, 520px);
+}
+
+.vrmj-login-card__logo {
+  width: min(100%, 170px);
+  height: auto;
+  margin: 0 auto 0.35rem;
+  display: block;
+  object-fit: contain;
+}
+
+.vrmj-login-card h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: #0f2f66;
+  margin: 0 0 0.15rem;
+}
+
+.vrmj-login-card__lead {
+  margin: 0 0 0.65rem;
+  color: #6b7a90;
+  font-size: 0.84rem;
+}
+
+.vrmj-form {
+  display: grid;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.vrmj-field {
+  position: relative;
+  display: block;
+}
+
+.vrmj-field input {
+  width: 100%;
+  border: 1.5px solid #d7deea;
+  border-radius: 12px;
+  padding: 0.62rem 2.8rem 0.62rem 2.55rem;
+  font: inherit;
+  background: #fff;
+  color: #0f2f66;
+}
+
+.vrmj-field input:focus {
+  outline: 2px solid rgba(15, 78, 186, 0.25);
+  border-color: #0f4eba;
+}
+
+.vrmj-field__icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d8da6;
+  display: grid;
+  place-items: center;
+}
+
+.vrmj-field__toggle {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #0f4eba;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+}
+
+.vrmj-form__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.05rem;
+}
+
+.vrmj-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  color: #445570;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vrmj-remember input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #0f4eba;
+}
+
+.vrmj-link-btn {
+  border: 0;
+  background: none;
+  color: #0f4eba;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vrmj-login-btn {
+  width: 100%;
+  margin-top: 0.15rem;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  background: #0b3d91;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(11, 61, 145, 0.35);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.vrmj-login-btn:hover {
+  background: #093278;
+  transform: translateY(-1px);
+}
+
+.vrmj-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.65rem 0 0.55rem;
+  color: #8a97ab;
+  font-size: 0.8rem;
+}
+
+.vrmj-divider::before,
+.vrmj-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #d7deea;
+}
+
+.vrmj-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.vrmj-social__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1.5px solid #d7deea;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.vrmj-social__btn:hover {
+  border-color: #0f4eba;
+  transform: translateY(-1px);
+}
+
+.vrmj-switch {
+  margin: 0.65rem 0 0;
+  color: #5b6b82;
+  font-size: 0.86rem;
+}
+
+.vrmj-switch a {
+  color: #0f4eba;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.vrmj-switch a:hover {
+  text-decoration: underline;
+}
+
+.vrmj-features {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(8, 40, 110, 0.94);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.vrmj-features__item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  justify-content: center;
+  min-width: 0;
+}
+
+.vrmj-features__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.vrmj-features__item strong {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.vrmj-features__item p {
+  margin: 0.05rem 0 0;
+  font-size: 0.7rem;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.vrmj-signup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.vrmj-signup-grid .span-2 {
+  grid-column: span 2;
+}
+
+/* Laptop / medium screens */
+@media (max-height: 820px) {
+  .vrmj-login-card {
+    padding: 0.8rem 1.1rem 0.75rem;
+  }
+
+  .vrmj-login-card__logo {
+    width: min(100%, 145px);
+    margin-bottom: 0.25rem;
+  }
+
+  .vrmj-auth__corner-logo {
+    width: clamp(140px, 16vw, 200px);
+  }
+
+  .vrmj-login-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .vrmj-login-card__lead {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .vrmj-form {
+    gap: 0.38rem;
+  }
+
+  .vrmj-field input {
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .vrmj-features {
+    padding: 0.45rem 0.85rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .vrmj-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vrmj-auth__content {
+    padding-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .vrmj-auth {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vrmj-auth__bg,
+  .vrmj-auth__overlay {
+    position: fixed;
+  }
+
+  .vrmj-auth__corner-logo {
+    position: absolute;
+    top: 0.65rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    margin: 0;
+    z-index: 4;
+  }
+
+  .vrmj-auth__content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.4rem 0.85rem 5.4rem;
+  }
+
+  .vrmj-login-card {
+    width: 100%;
+    max-width: 380px;
+    max-height: 100%;
+    padding: 0.85rem 0.95rem 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(8, 35, 90, 0.28);
+  }
+
+  .vrmj-login-card--wide {
+    max-width: 380px;
+  }
+
+  .vrmj-login-card__logo {
+    width: min(100%, 120px);
+    margin-bottom: 0.25rem;
+  }
+
+  .vrmj-login-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .vrmj-login-card__lead {
+    margin-bottom: 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .vrmj-form {
+    gap: 0.42rem;
+  }
+
+  .vrmj-field input {
+    padding: 0.62rem 2.5rem 0.62rem 2.35rem;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .vrmj-form__row {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+  }
+
+  .vrmj-remember,
+  .vrmj-link-btn {
+    font-size: 0.78rem;
+  }
+
+  .vrmj-login-btn {
+    padding: 0.68rem 1rem;
+    font-size: 0.92rem;
+    margin-top: 0.1rem;
+  }
+
+  .vrmj-divider {
+    margin: 0.5rem 0 0.4rem;
+    font-size: 0.74rem;
+  }
+
+  .vrmj-social {
+    gap: 0.55rem;
+  }
+
+  .vrmj-social__btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .vrmj-switch {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .vrmj-features {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 0.5rem;
+    padding: 0.55rem 0.7rem calc(0.55rem + env(safe-area-inset-bottom));
+  }
+
+  .vrmj-features__item {
+    justify-content: flex-start;
+    gap: 0.4rem;
+  }
+
+  .vrmj-features__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .vrmj-features__item strong {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .vrmj-features__item p {
+    display: none;
+  }
+
+  .vrmj-signup-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .vrmj-signup-grid .span-2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  html:has(.vrmj-auth),
+  html:has(.vrmj-auth) body,
+  html:has(.vrmj-auth) #root,
+  html:has(.vrmj-auth) .app-shell,
+  html:has(.vrmj-auth) main {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+  }
+
+  body:has(.vrmj-auth) {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+@media (max-width: 640px) and (max-height: 740px) {
+  .vrmj-auth__corner-logo {
+    display: none;
+  }
+
+  .vrmj-auth__content {
+    padding: 0.75rem 0.75rem 4.6rem;
+  }
+
+  .vrmj-login-card__logo {
+    width: min(100%, 100px);
+  }
+
+  .vrmj-login-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .vrmj-login-card__lead {
+    display: none;
+  }
+
+  .vrmj-divider,
+  .vrmj-social {
+    display: none;
+  }
+
+  .vrmj-switch {
+    margin-top: 0.55rem;
+  }
+
+  .vrmj-features__item strong {
+    font-size: 0.65rem;
+  }
+}
+
+@media (min-width: 641px) {
+  body:has(.vrmj-auth) {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  html:has(.vrmj-auth),
+  html:has(.vrmj-auth) body,
+  html:has(.vrmj-auth) #root,
+  html:has(.vrmj-auth) .app-shell,
+  html:has(.vrmj-auth) main {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+  }
+}
+
